@@ -1,3 +1,5 @@
+//O(N^2) EXPLAINATION
+
 var numIdenticalPairs = function(nums) {
     let counter = 0;
     let size= nums.length;
@@ -10,7 +12,16 @@ var numIdenticalPairs = function(nums) {
     return counter;
 }
    
-    
+//O(N) EXPLANATION
+var numIdenticalPairs = function(nums) {
+    let counter = 0;
+    let freq = Array(101).fill(0)
+    for(let x = 0;x<nums.length;x++){
+        counter += freq[nums[x]]
+        freq[nums[x]] +=1
+    }
+    return counter
+}    
 
 
 console.log(numIdenticalPairs([1,2,3,1,1,3]))
