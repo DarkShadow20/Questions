@@ -12,7 +12,7 @@ var reverseLinkedList = function(head){
 
 var isPalindrome = function(head) {
     if(head == null || head.next == null){
-        return head
+        return true
     }
     let fast = head
     let slow = head
