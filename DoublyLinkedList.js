@@ -89,7 +89,20 @@ function addBeforeHead (head,val){
     head.prev = newHead
     return newHead
 }
-function addBeforeTail(){
+function addBeforeTail(head,val){
+    if(head.next == null){
+        return addBeforeHead(head,val)
+    }
+    let tail = head
+    while(tail.next !=null ){
+        tail = tail.next
+    }
+
+    let prev = tail.prev
+    let newNode = new Node(val,tail,prev)
+    prev.next = newNode
+    tail.prev = newNode
+    return head
 
 }
 function print(head){
@@ -106,7 +119,8 @@ function mainCall (){
     //head = deleteTail(head)    //for deleting tail
     //head = removeKthElement(head,4)
     //deleteNode(head.next)
-    head = addBeforeHead(head,10)
+    //head = addBeforeHead(head,10)
+    head = addBeforeTail(head,10)
     print(head)
     return 0
 }
