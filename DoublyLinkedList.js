@@ -24,7 +24,7 @@ function deleteHead(head){
     let prev = head
     head = head.next
 
-    head.back = null
+    head.prev = null
     prev.next = null
     return head
 }
@@ -70,6 +70,20 @@ function removeKthElement (head , k){
     kNode.prev = null
     return head
 }
+function deleteNode (temp){         // temp node will not be head, if it is head it will make it more complicated
+    let prev = temp.prev
+    let front = temp.next
+
+    if(front == null){
+        prev.next = null
+        temp.prev = null
+        return;
+    }
+    prev.next = front
+    front.prev = prev
+
+    temp.next = temp.prev = null
+}
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -82,7 +96,8 @@ function mainCall (){
 
     //head = deleteHead(head)  for deleting head
     //head = deleteTail(head)    //for deleting tail
-    head = removeKthElement(head,4)
+    //head = removeKthElement(head,4)
+    deleteNode(head.next)
     print(head)
     return 0
 }
