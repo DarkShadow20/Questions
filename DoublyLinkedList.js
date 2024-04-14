@@ -84,6 +84,14 @@ function deleteNode (temp){         // temp node will not be head, if it is head
 
     temp.next = temp.prev = null
 }
+function addBeforeHead (head,val){
+    let newHead = new Node(val,head,null)
+    head.prev = newHead
+    return newHead
+}
+function addBeforeTail(){
+
+}
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -97,7 +105,8 @@ function mainCall (){
     //head = deleteHead(head)  for deleting head
     //head = deleteTail(head)    //for deleting tail
     //head = removeKthElement(head,4)
-    deleteNode(head.next)
+    //deleteNode(head.next)
+    head = addBeforeHead(head,10)
     print(head)
     return 0
 }
