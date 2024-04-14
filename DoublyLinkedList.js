@@ -41,6 +41,35 @@ function deleteTail(head){
     tail.prev = null
     return head
 }
+function removeKthElement (head , k){
+    if(head == null){
+        return null
+    }
+    let cnt = 0;
+    let kNode = head
+    while(kNode!=null){
+        cnt++
+        if(cnt == k){
+            break;
+        }
+        kNode = kNode.next
+    }
+    let prev = kNode.prev
+    let front = kNode.next
+    
+    if(prev == null && front == null){
+        return null
+    }else if(prev == null){
+        return deleteHead(head)
+    }else if(front == null){
+        return deleteTail(head)
+    }
+    prev.next = front
+    front.back = prev
+    kNode.next = null
+    kNode.prev = null
+    return head
+}
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -52,7 +81,8 @@ function mainCall (){
     let head = convertArr2DLL(arr)
 
     //head = deleteHead(head)  for deleting head
-    head = deleteTail(head)    //for deleting tail
+    //head = deleteTail(head)    //for deleting tail
+    head = removeKthElement(head,4)
     print(head)
     return 0
 }
