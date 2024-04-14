@@ -105,6 +105,26 @@ function addBeforeTail(head,val){
     return head
 
 }
+
+function addBeforeKNode(head,k,val){
+     if( k == 1){
+        return addBeforeHead(head,val)
+     }
+     let temp = head
+     let cnt = 0
+     while(temp != null){
+        cnt++ 
+        if(cnt == k)
+            break
+        temp = temp.next
+     }
+    let prev = temp.prev
+    let newNode = new Node(val,temp,prev);
+    prev.next = newNode
+    temp.back = newNode
+    return head
+}
+
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -120,7 +140,8 @@ function mainCall (){
     //head = removeKthElement(head,4)
     //deleteNode(head.next)
     //head = addBeforeHead(head,10)
-    head = addBeforeTail(head,10)
+    //head = addBeforeTail(head,10)
+    head = addBeforeKNode(head,3,10)
     print(head)
     return 0
 }
