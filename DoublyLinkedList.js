@@ -124,7 +124,12 @@ function addBeforeKNode(head,k,val){
     temp.back = newNode
     return head
 }
-
+function addBeforeNode(node,val){
+    let prev = node.prev
+    let newNode = new Node(val,node,prev)
+    prev.next = newNode
+    node.prev = newNode
+}
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -138,10 +143,11 @@ function mainCall (){
     //head = deleteHead(head)  for deleting head
     //head = deleteTail(head)    //for deleting tail
     //head = removeKthElement(head,4)
-    //deleteNode(head.next)
+    //deleteNode(head.next)        // never delete head will be asked, increase the complexity
     //head = addBeforeHead(head,10)
     //head = addBeforeTail(head,10)
     //head = addBeforeKNode(head,3,10)
+    addBeforeNode(head.next.next,100)
     print(head)
     return 0
 }
