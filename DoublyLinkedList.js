@@ -141,7 +141,7 @@ function mainCall (){
     //deleteNode(head.next)
     //head = addBeforeHead(head,10)
     //head = addBeforeTail(head,10)
-    head = addBeforeKNode(head,3,10)
+    //head = addBeforeKNode(head,3,10)
     print(head)
     return 0
 }
