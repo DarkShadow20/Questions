@@ -17,7 +17,17 @@ function convertArr2DLL(arr){
     }
     return head
 }
+function deleteHead(head){
+    if(head == null || head.next == null){
+        return null
+    }
+    let prev = head
+    head = head.next
 
+    head.back = null
+    prev.next = null
+    return head
+}
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -27,6 +37,7 @@ function print(head){
 function mainCall (){
     let arr = [12,5,8,7]
     let head = convertArr2DLL(arr)
+    head = deleteHead(head)
     print(head)
     return 0
 }
