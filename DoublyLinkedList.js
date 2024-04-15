@@ -178,6 +178,15 @@ function addBeforeNode(node,val){
     prev.next = newNode
     node.prev = newNode
 }
+function addAfterNode(node,val){
+    if(node.next == null){
+        return addAfterTail(node,val)
+    }
+    let front = node.next
+    let newNode = new Node(val,front,node)
+    front.prev = newNode
+    node.next = newNode
+}
 function print(head){
     while(head!=null){
         console.log(head.data)
@@ -198,7 +207,8 @@ function mainCall (){
     //addBeforeNode(head.next.next,100)
     //head = addAfterHead(head,10)
     //head = addAfterTail(head,10)
-    //head = addAfterKNode(head,4,10)         
+    //head = addAfterKNode(head,4,10)    
+    addAfterNode(head.next.next.next,10)     
     print(head)
     return 0
 }
