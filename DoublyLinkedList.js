@@ -152,7 +152,25 @@ function addBeforeKNode(head,k,val){
     return head
 }
 function addAfterKNode(head,k,val){
-    
+    if(k==1){
+        return addAfterHead(head,val)
+    }
+    let temp = head
+    let cnt = 0
+    while(temp!=null){
+        cnt++
+        if(cnt == k)
+            break
+        temp= temp.next
+    }
+    if(temp.next == null){
+        return addAfterTail(head,val)
+    }
+    let front = temp.next
+    let newNode = new Node(val,front,temp);
+    front.prev = newNode
+    temp.next = newNode
+    return head
 }
 function addBeforeNode(node,val){
     let prev = node.prev
@@ -180,7 +198,7 @@ function mainCall (){
     //addBeforeNode(head.next.next,100)
     //head = addAfterHead(head,10)
     //head = addAfterTail(head,10)
-    head = addAfterKNode(head,3,10)
+    //head = addAfterKNode(head,4,10)         
     print(head)
     return 0
 }
