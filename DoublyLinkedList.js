@@ -89,6 +89,22 @@ function addBeforeHead (head,val){
     head.prev = newHead
     return newHead
 }
+function addAfterHead (head,val){
+    if(head == null){
+        return new Node(val,null,null)
+    }
+    else if(head.next == null){
+        let newNode = new Node(val,null,head)
+        head.next = newNode
+        return head
+    }
+    let front = head.next
+
+    let newNode = new Node(val,front,head)
+    head.next = newNode
+    front.prev = newNode
+    return head
+}
 function addBeforeTail(head,val){
     if(head.next == null){
         return addBeforeHead(head,val)
@@ -105,7 +121,9 @@ function addBeforeTail(head,val){
     return head
 
 }
-
+function addAfterTail(head,val){
+    
+}
 function addBeforeKNode(head,k,val){
      if( k == 1){
         return addBeforeHead(head,val)
@@ -147,7 +165,8 @@ function mainCall (){
     //head = addBeforeHead(head,10)
     //head = addBeforeTail(head,10)
     //head = addBeforeKNode(head,3,10)
-    addBeforeNode(head.next.next,100)
+    //addBeforeNode(head.next.next,100)
+    //head = addAfterHead(head,10)
     print(head)
     return 0
 }
