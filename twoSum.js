@@ -13,3 +13,4 @@ var twoSum = function(nums, target) {
 
 
 console.log(twoSum([3,3],6))
+console.log(twoSum([2,5,7,15],22))
