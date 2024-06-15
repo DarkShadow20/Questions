@@ -13,6 +13,10 @@ var findMaxLength = function(nums) {
     }
     return maxLen
 };
-
-
-console.log(findMaxLength([0,0,0,1,0,0,1,1,1,0]))
+// const map = new Map()
+// map.set("a",1)
+// map.set("b",2)
+// map.set("c",3)
+// map.set("a",2)
+// console.log(map)
+//console.log(findMaxLength([0,0,0,1,0,0,1,1,1,0]))
