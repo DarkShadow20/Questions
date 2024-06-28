@@ -1,7 +1,7 @@
 // Find the longest subarray with sum = k
 
-var longSubSumK = (nums) =>{
-
+var longSubSumK = (nums,k) =>{
+    
 }
 
-console.log(longSubSumK([]))
+console.log(longSubSumK([1,-1,5,2,-1],6))
