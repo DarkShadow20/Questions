@@ -19,4 +19,24 @@ var productExceptSelf = function(nums) {
     return ans
 };
 
+//optimization, you dont need leftproduct
+var productExceptSelf = function(nums) {
+    let RP = []
+    let ans = []
+    let n = nums.length 
+    let leftProduct = 1
+    RP[n-1] = nums[n-1]
+    
+    for(let i = n-2;i>=0;i--){
+        RP[i] = RP[i+1] * nums[i]
+    }
+    for(let i = 0;i<n;i++){
+        let rightProduct = (i == n-1) ? 1 : RP[i+1]
+        ans[i] = leftProduct * rightProduct
+        leftProduct *= nums[i]
+    }
+    return ans
+};
+//optimization, you don't need extra space for rightproduct also
+
 console.log(productExceptSelf([1,2,3,4]))
