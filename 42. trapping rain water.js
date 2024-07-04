@@ -35,4 +35,26 @@ var trap1 = function(height) {
     return ans
 };
 
-console.log(trap1([0,1,0,2,1,0,1,3,2,1,2,1]))
+//optimization not rightmax
+var trap2 = function(height) {
+    let n = height.length
+    let low = 0
+    let high = n-1
+    let ans = 0
+    let leftMax = 0
+    let rightMax = 0
+    while(low < high){
+        if(height[low] < height[high])
+        {
+            leftMax = Math.max(height[low],leftMax)
+            ans += leftMax - height[low]
+            low++
+        }else{
+            rightMax = Math.max(height[high],rightMax)
+            ans += rightMax - height[high]
+            high--
+        }
+    }
+    return ans
+};
+console.log(trap2([0,1,0,2,1,0,1,3,2,1,2,1]))
