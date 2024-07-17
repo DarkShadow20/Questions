@@ -1,23 +1,20 @@
 var singleNumber = function(nums) {
-    const MAX_BITS = 32
-    let countOfSetBits = new Array(MAX_BITS)
-    for(let no = 0; no < nums.length; no++){
-        console.log(no)
-        for(let bitPos = 0; bitPos < MAX_BITS; bitPos++){
+    let countOfSetBits = new Array(32).fill(0)
+    let singleNo = 0
+    for(let no of nums){
+        for(let bitPos = 0; bitPos < 32; bitPos++){
             let mask = (1<<bitPos)
-            console.log(bitPos)
-            if( (no & (1<<bitPos))!=0  ){
+            if( (no & mask)){
                 countOfSetBits[bitPos]++
             }
         }
-        let singleNo = 0
-        for(let i = 0;i < MAX_BITS; i++){
+    }
+    for(let i = 0;i < 32; i++){
             if(countOfSetBits[i]%3 !=0){
                 singleNo |= (1<<i)
             }
         }
-        return singleNo
-    }
+    return singleNo
 };
 
-console.log(singleNumber([2,2,3,2]))
+console.log(singleNumber([30000,500,100,30000,100,30000,100]))
