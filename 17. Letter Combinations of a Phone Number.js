@@ -22,7 +22,7 @@ var helper = function(digits,index,sfs){
     }
 }
 var letterCombinations = function(digits) {
-    
+    result = []
     if(digits.length == 0){
         return result
     }
